@@ -193,6 +193,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara
+  factory_girl
   factory_girl_rails
   jquery-rails
   launchy

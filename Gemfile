@@ -18,9 +18,14 @@ group :development, :test do
   gem 'launchy', require: false
   gem 'pry-rails'
   gem 'byebug'
+  gem 'factory_girl'
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda'
   gem 'valid_attribute'
+end
+
+group :test do
+  gem 'coveralls', require: false
 end
 
 group :production do
