@@ -17,4 +17,8 @@ RSpec.describe User, type: :model do
     expect(user).to_not be_valid
     expect(user.errors[:password_confirmation]).to_not be_blank
   end
+
+  it 'has a valid factory' do
+    expect(FactoryGirl.build(:user)).to be_valid
+  end
 end

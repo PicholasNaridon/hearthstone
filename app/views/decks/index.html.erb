@@ -1,0 +1,15 @@
+<div class="small-6 small-offset-3 columns">
+
+  <h1>All Decks</h1>
+  <h3>
+    <%= link_to "New Deck", new_deck_path, class: "button expanded" %>
+  </h3>
+
+  <ul>
+    <% @decks.each do |deck| %>
+      <li>
+        <%= link_to deck.name, deck_path(deck)%>
+      </li>
+    <% end %>
+  </ul>
+</div>
