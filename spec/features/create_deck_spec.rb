@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature "User creates new item" do
   let!(:user) { FactoryGirl.create(:user) }
 

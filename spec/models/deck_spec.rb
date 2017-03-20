@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Deck, type: :deck do
-let!(:user) { FactoryGirl.create(:user) }
+  let!(:user) { FactoryGirl.create(:user) }
 
   it { should have_valid(:name).when('Test', 'name') }
   it { should_not have_valid(:name).when(nil) }

@@ -49,10 +49,10 @@ class DecksController < ApplicationController
   end
 
   private
+
   def deck_params
     params.require(:deck).permit(:name, :user)
   end
-
 
   def authorize_user
     if !user_signed_in?
