@@ -1,16 +1,6 @@
 require 'rails_helper'
 
-feature 'Sign up' , %Q{
-  As an authenticated user
-  I want to sign up
-  So that I can add items and reviews
-} do
-
-  # * Acceptance CRITERIA
-  # * I must specify a valid email adderss
-  # * I must specify a password, and confirm that passowrd
-  # * If I do not perform the above, I get an error message
-  # * If I specify valid information, I register my account and am authenticated
+feature "Sign Up" do
 
   scenario 'specifying valid and required information' do
     visit root_path
