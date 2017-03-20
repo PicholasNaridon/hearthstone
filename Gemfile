@@ -10,6 +10,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'carrierwave'
 gem 'validate_url'
+gem 'json'
 
 group :development do
   gem 'listen', '~> 3.0.5'

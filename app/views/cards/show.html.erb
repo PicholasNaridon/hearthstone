@@ -1,0 +1,21 @@
+<h1><%= @card.name %></h1>
+  <% if @card.imgGold == nil %>
+    <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif' >
+  <% else %>
+    <img src=<%= @card.imgGold%> >
+  <% end %>
+
+<div class="card">
+  <% if @card.imgGold == nil %>
+    <p> Text: <%= @card.text %> </p>
+  <% end %>
+  <p>Type: <%= @card.cardType %></p>
+  <p>Faction: <%= @card.faction %></p>
+  <p>Rarity: <%= @card.rarity %></p>
+  <p>Cost: <%= @card.cost %></p>
+  <p>Artist: <%= @card.artist %></p>
+  <p>Collectible: <%= @card.collectible %></p>
+  <p>Class: <%= @card.playerClass %></p>
+  <p>How to acquire: <%= @card.howToGet %></p>
+  <p>How to aquire gold: <%= @card.howToGetGold %></p>
+</div>

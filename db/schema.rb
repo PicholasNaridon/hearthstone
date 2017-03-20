@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320141520) do
+ActiveRecord::Schema.define(version: 20170320160258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cards", force: :cascade do |t|
+    t.string  "cardId"
+    t.string  "name"
+    t.string  "cardSet"
+    t.string  "cardType"
+    t.string  "faction"
+    t.string  "rarity"
+    t.integer "cost"
+    t.text    "text"
+    t.text    "flavor"
+    t.string  "artist"
+    t.boolean "collectible"
+    t.string  "playerClass"
+    t.string  "howToGet"
+    t.string  "howToGetGold"
+    t.string  "img"
+    t.string  "imgGold"
+    t.string  "locale"
+    t.integer "deck_id"
+    t.index ["deck_id"], name: "index_cards_on_deck_id", using: :btree
+  end
 
   create_table "decks", force: :cascade do |t|
     t.string   "name",       null: false
