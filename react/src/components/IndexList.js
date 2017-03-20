@@ -80,7 +80,7 @@ class IndexList extends Component {
           {newCards}
         </div>
         <ul>
-          <div className="small-3 small-push-2 columns">
+          <div>
             {renderPageNumbers}
           </div>
         </ul>
