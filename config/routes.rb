@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post '/decks/:id/:card' => 'decks#add_card'
+
   devise_for :users
 
   resources :decks

@@ -1,5 +1,6 @@
 class DecksController < ApplicationController
-  before_action :authorize_user, except: [:index, :show]
+  skip_before_filter :verify_authenticity_token
+
 
   def index
     @decks = Deck.all
@@ -8,6 +9,7 @@ class DecksController < ApplicationController
   def show
     @deck = Deck.find(params[:id])
     @creator = @deck.user
+    @cards = @deck.cards
   end
 
   def new
@@ -47,6 +49,19 @@ class DecksController < ApplicationController
     flash[:notice] = 'Deck has been deleted'
     redirect_to decks_path
   end
+
+
+  def add_card
+    authenticate_user!
+    @deck = Deck.find(params[:id])
+    @copies = @deck.cards.where({id: params[:card]})
+    @allcards = @deck.cards
+    if @copies.length <2 && @allcards.length < 30
+      @deck.cards.push(Card.find(params[:card]))
+    end
+    redirect_to @deck
+  end
+
 
   private
 

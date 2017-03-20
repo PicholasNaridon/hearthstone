@@ -2,9 +2,26 @@
   <h1><%= @deck.name %></h1>
   <h4>Created by: <%= @creator.username %></h4>
   <div>
+    <ul>
+      <% @cards.each do |card| %>
+        <li>
+          <% if card.img == nil %>
+          <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif'>
+          <% else %>
+          <img src=<%= card.imgGold %>>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
     <% if @creator == current_user %>
       <%= link_to 'Change Name', edit_deck_path(@deck) %> |
       <%= link_to 'Delete Deck', @deck, method: :delete%>
     <% end %>
   </div>
+</div>
+<br>
+<div>
+  <h1>Add Cards</h1>
+  <div id="main-app">
 </div>
