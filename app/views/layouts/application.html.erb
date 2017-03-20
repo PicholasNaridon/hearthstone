@@ -14,13 +14,16 @@
          <% else %>
          <li class="topbar"><p><%= link_to 'Sign Up', new_user_registration_path, class: "topbar-text" %> | <%= link_to 'Login', new_user_session_path, class: "topbar-text" %></p></li>
          <% end %>
-         <% if current_user.try(:admin?) %>
-         <li class="topbar"><p> <%= link_to "Admin", admin_users_path, class: "topbar-text" %> </p></li>
-         <% end %>
          <li class="topbar" id="notice"><p><%= notice %></p></li>
        </ul>
      </div>
    </div>
+
+   <div class="top-bar-left">
+     <ul>
+        <li class="topbar"><%= link_to 'Decks', decks_path %></li>
+      </ul>
+  </div>
 
   <body>
     <%= yield %>

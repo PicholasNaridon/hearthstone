@@ -1,1 +1,13 @@
-<h1>Hearthstone Deck Builder</h1>
+<div class="small-6 medium-offset-3 columns">
+  <h1>Hearthstone Deck Builder</h1>
+  <%= render 'decks/form', deck: @deck %>
+  <hr>
+  <h4>Trending Decks</h4>
+  <ul>
+    <% @decks.each do |deck| %>
+      <li>
+        <%= link_to deck.name, deck_path(deck)%>
+      </li>
+    <% end %>
+  </ul>
+</div>
