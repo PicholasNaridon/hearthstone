@@ -11,8 +11,10 @@ const CardListItem = (props) => {
             <img src={picture} className="image"/>
           </button>
         </form>
-      <div className="card-section">
-          <h4><a href={`http://localhost:3000/cards/` + props.id}>{props.name}</a></h4>
+        <div className="card-section">
+          <h4>
+            <a href={`http://localhost:3000/cards/` + props.id}>{props.name}</a>
+          </h4>
         </div>
       </div>
     </div>

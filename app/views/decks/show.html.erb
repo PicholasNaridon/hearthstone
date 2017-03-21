@@ -1,16 +1,20 @@
 <div class="small-6 small-offset-3 columns"><br />
   <h1><%= @deck.name %></h1>
   <h4>Created by: <%= @creator.username %></h4>
+  <h5>30</h5>
   <div>
     <ul>
       <% @cards.each do |card| %>
         <li>
-          <% if card.img == nil %>
-          <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif'>
-          <% else %>
-          <img src=<%= card.imgGold %>>
-          <% end %>
-        </li>
+          <form action="/decks/<%= @deck.id %>/<%= card.id%>" method="delete">
+            <button type="submit" value="delete card">
+              <% if card.img == nil %>
+                <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif'>
+              <% else %>
+                <img src=<%= card.imgGold %>>
+              <% end %>
+            </button>
+          </form>
       <% end %>
     </ul>
 
@@ -23,5 +27,5 @@
 <br>
 <div>
   <h1>Add Cards</h1>
-  <div id="main-app">
+<div id="main-app">
 </div>

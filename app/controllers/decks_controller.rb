@@ -1,7 +1,6 @@
 class DecksController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
-
   def index
     @decks = Deck.all
   end
@@ -60,6 +59,14 @@ class DecksController < ApplicationController
       @deck.cards.push(Card.find(params[:card]))
     end
     redirect_to @deck
+  end
+
+  def delete_card
+    @deck = Deck.find(params[:id])
+    @card = Card.find(params[:id])
+    @delete = IncludesCard.find_by({card_id: params[:card], deck_id: params[:id]})
+    @delete.destroy
+    redirect_to deck_path(@deck), notice: "Deleted"
   end
 
 
