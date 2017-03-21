@@ -15,6 +15,8 @@
               <% end %>
             </button>
           </form>
+          <%= link_to card.name, card_path(card) %>
+        </li>
       <% end %>
     </ul>
 
@@ -26,6 +28,8 @@
 </div>
 <br>
 <div>
+<% if current_user == @creator %>
   <h1>Add Cards</h1>
-<div id="main-app">
-</div>
+    <div id="main-app">
+    </div>
+<% end %>

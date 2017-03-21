@@ -3,6 +3,7 @@ class DecksController < ApplicationController
 
   def index
     @decks = Deck.all
+    
   end
 
   def show
@@ -23,8 +24,8 @@ class DecksController < ApplicationController
       flash[:notice] = "Deck created"
       redirect_to deck_path(@deck)
     else
-      flash[:notice] = @deck.errors.full_messages
-      render :new
+      flash[:notice] = "Please login!"
+      redirect_to new_user_session_url
     end
   end
 
