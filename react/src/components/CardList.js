@@ -16,10 +16,10 @@ class CardList extends Component {
 
   updateSearch(event) {
     this.setState({search: event.target.value.substr(0, 20)});
-    if (this.state.search.length > 1) {
-      this.setState({ group: 0 });
-    } else {
+    if (this.state.search.length === 1) {
       this.setState({ group: 1 });
+    }else if (this.state.search.length > -1){
+      this.setState({ group: 0 });
     }
   }
 
@@ -65,8 +65,8 @@ class CardList extends Component {
 
   render() {
 
-    let groupSize = 6;
-    let pageSize = 36;
+    let groupSize = 4;
+    let pageSize = 120;
     let pageNumberLength = Math.ceil(this.state.cards.length / pageSize);
 
     let cards = this.state.cards.map((card, index) => {

@@ -3,7 +3,7 @@ class DecksController < ApplicationController
 
   def index
     @decks = Deck.all
-    
+
   end
 
   def show
@@ -64,7 +64,7 @@ class DecksController < ApplicationController
 
   def delete_card
     @deck = Deck.find(params[:id])
-    @card = Card.find(params[:id])
+    @card = Card.find(params[:card])
     @delete = IncludesCard.find_by({card_id: params[:card], deck_id: params[:id]})
     @delete.destroy
     redirect_to deck_path(@deck), notice: "Deleted"
