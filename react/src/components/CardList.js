@@ -1,93 +1,127 @@
 import React, { Component } from 'react';
-import CardListItem from './CardItem';
+import CardItem from './CardItem';
 
 class CardList extends Component {
   constructor(props) {
-  super(props);
+    super(props);
     this.state = {
       cards: [],
-      currentPage: 1,
-      cardsPerPage: 30
+      search: '',
+      group: 1
     };
-    this.getData = this.getData.bind(this);
-    this.handleClick = this.handleClick.bind(this)
+    this.getCards = this.getCards.bind(this);
+    this.updateSearch = this.updateSearch.bind(this);
+    this.setCards = this.setCards.bind(this);
   }
 
-  handleClick(event) {
-    this.setState({
-      currentPage: Number(event.target.id)
-    });
+  updateSearch(event) {
+    this.setState({search: event.target.value.substr(0, 20)});
+    if (this.state.search.length > 1) {
+      this.setState({ group: 0 });
+    } else {
+      this.setState({ group: 1 });
+    }
   }
 
-  getData() {
+
+  shuffle(array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+  }
+
+  getCards() {
     fetch('http://localhost:3000/api/v1/cards.json')
       .then(response => {
         if (response.ok) {
           return response;
         } else {
-          let errorMessage = `${response.status} ($response.statusText)`,
-            error = new Error(errorMessage);
+          let errorMessage = `${response.status} (${response.statusText})`,
+              error = new Error(errorMessage);
           throw(error);
         }
       })
       .then(response => response.json())
       .then(body => {
-        this.setState({cards: body});
+        let randomizedBody = this.shuffle(body);
+        this.setState({ cards: randomizedBody })
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   componentDidMount() {
-    this.getData();
-  };
+    this.getCards();
+  }
+
+  setCards(page) {
+    this.setState({ group: page })
+  }
 
   render() {
-    let indexOfLastCard = this.state.currentPage * this.state.cardsPerPage
-    let indexOfFirstCard = indexOfLastCard - this.state.cardsPerPage
-    let currentCards = this.state.cards.slice(indexOfFirstCard, indexOfLastCard)
 
-    let newCards = currentCards.map((card, index) =>{
-      return (
-        <CardListItem
-          id={card.id}
-          key={index}
-          name={card.name}
-          picture={card.img}
-        />
-      )
+    let groupSize = 6;
+    let pageSize = 36;
+    let pageNumberLength = Math.ceil(this.state.cards.length / pageSize);
+
+    let cards = this.state.cards.map((card, index) => {
+      if (card.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1) {
+        return (
+          <CardItem
+           id={card.id}
+           key={index}
+           name={card.name}
+           picture={card.img}
+           key={index + 1}
+          />
+        );
+      }
+    }).reduce((r, element, index) => {
+      index % groupSize === 0 && r.push([]);
+      r[r.length - 1].push(element);
+      return r;
+    }, []).reduce((r, element, index) => {
+      index % pageSize === 0 && r.push([]);
+      r[r.length - 1].push(element);
+      return r;
+    }, []).map((cardContent) => {
+      if (this.state.group) {
+        return(
+          <div className="row">
+            {cardContent[this.state.group - 1]}
+          </div>
+        );
+      } else {
+        return(
+          <div className="row">
+            {cardContent}
+          </div>
+        );
+      }
     });
 
     let pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(this.state.cards.length / this.state.cardsPerPage); i++){
-      pageNumbers.push(i);
+    for(let i = 1; i <= pageNumberLength; i++) {
+      pageNumbers.push(<input type="submit" value={i} className="button" onClick={() => this.setCards(i)} />)
     }
-
-    let renderPageNumbers = pageNumbers.map(number => {
-      return (
-        <a className="tiny button"
-          key={number}
-          id={number}
-          onClick={this.handleClick}
-        >
-          {number}
-        </a>
-      );
-    });
 
     return(
       <div>
-        <div>
-          {newCards}
+        <input type="text" className="search" placeholder="Search"
+        value={this.state.search}
+        onChange={this.updateSearch}/>
+        {cards}
+        <div className="numbers">
+          {pageNumbers}
         </div>
-        <ul>
-          <div className="small-3 small-push-2 columns">
-            {renderPageNumbers}
-          </div>
-        </ul>
       </div>
-
-    )
+    );
   }
-};
+}
 
 export default CardList;
