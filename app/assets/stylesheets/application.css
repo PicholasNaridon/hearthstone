@@ -24,9 +24,14 @@
    background-size: cover;
 
  }
+ .top-bar{
+   background-image: url(/assets/navbar.png);
+   background-attachment: fixed;
+   background-size:auto;
+ }
 
  .search{
-   position: absolute;;
+   position: absolute;
    width: 20%;
    top: -30%
    right: 10%:
