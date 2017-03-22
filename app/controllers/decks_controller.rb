@@ -25,7 +25,7 @@ class DecksController < ApplicationController
       redirect_to deck_path(@deck)
     else
       flash[:notice] = "Please login!"
-      redirect_to new_user_session_url
+      render :new
     end
   end
 

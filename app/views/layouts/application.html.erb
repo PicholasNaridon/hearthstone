@@ -33,10 +33,9 @@
            <% if current_user.try(:admin?) %>
            <li class="topbar"><p> <%= link_to "Admin", admin_users_path, class: "topbar-text" %> </p></li>
            <% end %>
-           <li class="topbar" id="notice"><p><%= notice %></p></li>
          </ul>
        </div>
-
+   <p class="topbar" id="notice"><%= notice %></p>
    </div>
     <%= yield %>
 
