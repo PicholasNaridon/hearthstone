@@ -12,6 +12,8 @@ class IndexList extends Component {
     this.getCards = this.getCards.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
     this.setCards = this.setCards.bind(this);
+    this.updateGroup = this.updateGroup.bind(this);
+    this.Shuffle = this.shuffle.bind(this);
   }
 
   updateSearch(event) {
@@ -21,6 +23,23 @@ class IndexList extends Component {
     } else {
       this.setState({ group: 1 });
     }
+  }
+
+  shuffle(array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+  }
+
+  updateGroup(page) {
+    let nextGroup = this.state.group + page;
+    this.setState({ group: nextGroup });
   }
 
   getCards() {
@@ -91,10 +110,19 @@ class IndexList extends Component {
       }
     });
 
-    let pageNumbers = [];
-    for(let i = 1; i <= pageNumberLength; i++) {
-      pageNumbers.push(<input type="submit" value={i} className="button" onClick={() => this.setCards(i)} />)
+    let page;
+    if (this.state.group === 1) {
+     page =
+      <div>
+        <button type="button" onClick={() => this.updateGroup(1)} className="button"> Next</button>
+      </div>
+    }else {
+       page = <div>
+                <button type="button" onClick={() => this.updateGroup(-1)} className="button">Previous</button>
+                <button type="button" onClick={() => this.updateGroup(1)} className="button"> Next</button>
+              </div>
     }
+
 
     return(
       <div>
@@ -103,7 +131,7 @@ class IndexList extends Component {
         onChange={this.updateSearch}/>
         {cards}
         <div className="numbers">
-          {pageNumbers}
+          {page}
         </div>
       </div>
     );

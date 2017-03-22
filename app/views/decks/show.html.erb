@@ -1,9 +1,8 @@
-<div class="small-6 small-offset-3 columns"><br />
   <h1><%= @deck.name %></h1>
   <h4>Created by: <%= @creator.username %></h4>
   <h5><%= @deck.cards.length %>/30</h5>
   <div>
-    <ul>
+    <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
       <% @cards.each do |card| %>
         <li>
           <form action="/decks/<%= @deck.id %>/<%= card.id%>" method="delete">
@@ -19,13 +18,16 @@
         </li>
       <% end %>
     </ul>
-
-    <% if @creator == current_user %>
-      <%= link_to 'Change Name', edit_deck_path(@deck) %> |
-      <%= link_to 'Delete Deck', @deck, method: :delete%>
-    <% end %>
   </div>
-</div>
+<div>
+  <div class="small-6 small-offset-3 columns">
+    <div>
+      <% if @creator == current_user %>
+        <%= link_to 'Change Name', edit_deck_path(@deck) %> |
+        <%= link_to 'Delete Deck', @deck, method: :delete%>
+      <% end %>
+    </div>
+  </div>
 <br>
 <div>
 <% if current_user == @creator %>
@@ -33,3 +35,5 @@
     <div id="main-app">
     </div>
 <% end %>
+</div>
+</div>

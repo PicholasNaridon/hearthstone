@@ -7,16 +7,21 @@ class CardList extends Component {
     this.state = {
       cards: [],
       search: '',
+      prevSearch: '',
       group: 1
     };
     this.getCards = this.getCards.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
     this.setCards = this.setCards.bind(this);
+    this.updateGroup = this.updateGroup.bind(this);
+    this.Shuffle = this.shuffle.bind(this);
   }
 
   updateSearch(event) {
+    let prevSearch = this.state.search;
+    this.setState({prevSearch: prevSearch})
     this.setState({search: event.target.value.substr(0, 20)});
-    if (this.state.search.length === 1) {
+    if (this.state.search.length === 1 && this.state.prevSearch > this.state.search) {
       this.setState({ group: 1 });
     }else if (this.state.search.length > -1){
       this.setState({ group: 0 });
@@ -35,6 +40,14 @@ class CardList extends Component {
     }
     return array;
   }
+
+  updateGroup(page) {
+
+    let nextGroup = this.state.group + page;
+    this.setState({ group: nextGroup });
+
+
+}
 
   getCards() {
     fetch('http://localhost:3000/api/v1/cards.json')
@@ -64,10 +77,8 @@ class CardList extends Component {
   }
 
   render() {
-
     let groupSize = 4;
     let pageSize = 120;
-    let pageNumberLength = Math.ceil(this.state.cards.length / pageSize);
 
     let cards = this.state.cards.map((card, index) => {
       if (card.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1) {
@@ -81,6 +92,8 @@ class CardList extends Component {
           />
         );
       }
+
+      // if this.state.group = 0 ignore
     }).reduce((r, element, index) => {
       index % groupSize === 0 && r.push([]);
       r[r.length - 1].push(element);
@@ -104,10 +117,17 @@ class CardList extends Component {
         );
       }
     });
-
-    let pageNumbers = [];
-    for(let i = 1; i <= pageNumberLength; i++) {
-      pageNumbers.push(<input type="submit" value={i} className="button" onClick={() => this.setCards(i)} />)
+    let page;
+    if (this.state.group === 1) {
+     page =
+      <div>
+        <button type="button" onClick={() => this.updateGroup(1)} className="button"> Next</button>
+      </div>
+    }else {
+       page = <div>
+                  <button type="button" onClick={() => this.updateGroup(-1)} className="button">Previous</button>
+                  <button type="button" onClick={() => this.updateGroup(1)} className="button"> Next</button>
+                </div>
     }
 
     return(
@@ -116,8 +136,8 @@ class CardList extends Component {
         value={this.state.search}
         onChange={this.updateSearch}/>
         {cards}
-        <div className="numbers">
-          {pageNumbers}
+        <div>
+          {page}
         </div>
       </div>
     );
