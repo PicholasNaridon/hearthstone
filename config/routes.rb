@@ -2,13 +2,21 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :cards, only: [:index, :show]
+      resources :cards
     end
   end
 
+  post '/decks/:id/:card' => 'decks#add_card'
+  get '/decks/:id/:card' => 'decks#delete_card'
+
+
   devise_for :users
 
-  resources :decks
+  resources :decks do
+    resources :hands do
+      resources :cards
+    end
+  end
 
   resources :cards
 

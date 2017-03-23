@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'json'
 
+Card.delete_all
 
 cards_path = "#{Rails.root}/public/response.json"
 cards = JSON.parse(File.read(cards_path))

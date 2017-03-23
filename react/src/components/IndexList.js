@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import CardItem from './CardItem';
+import IndexItem from './IndexItem';
 
-class CardList extends Component {
+class IndexList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -73,7 +73,7 @@ class CardList extends Component {
   }
 
   setCards(page) {
-    this.setState({ group: page });
+    this.setState({ group: page })
   }
 
   render() {
@@ -83,7 +83,7 @@ class CardList extends Component {
     let cards = this.state.cards.map((card, index) => {
       if (card.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1) {
         return (
-          <CardItem
+          <IndexItem
            id={card.id}
            key={index}
            name={card.name}
@@ -125,9 +125,9 @@ class CardList extends Component {
       </div>
     }else {
        page = <div>
-                <button type="button" onClick={() => this.updateGroup(-1)} className="button">Previous</button>
-                <button type="button" onClick={() => this.updateGroup(1)} className="button"> Next</button>
-              </div>
+                  <button type="button" onClick={() => this.updateGroup(-1)} className="button">Previous</button>
+                  <button type="button" onClick={() => this.updateGroup(1)} className="button"> Next</button>
+                </div>
     }
 
     return(
@@ -144,4 +144,4 @@ class CardList extends Component {
   }
 }
 
-export default CardList;
+export default IndexList;

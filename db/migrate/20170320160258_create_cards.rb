@@ -19,7 +19,6 @@ class CreateCards < ActiveRecord::Migration[5.0]
       t.string :imgGold
       t.string :locale
 
-      t.belongs_to :deck
     end
   end
 end

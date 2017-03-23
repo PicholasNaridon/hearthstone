@@ -25,12 +25,4 @@ feature "User creates new item" do
     expect(page).to_not have_content("Deck Created")
     expect(page).to have_content("Name can't be blank")
   end
-
-  scenario 'Unregistered user cannot add deck' do
-    visit root_path
-    click_link 'Decks'
-    click_link 'New Deck'
-
-    expect(page).to have_content("Please log in to use this feature")
-  end
 end

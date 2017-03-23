@@ -1,13 +1,15 @@
 class DecksController < ApplicationController
-  before_action :authorize_user, except: [:index, :show]
+  skip_before_action :verify_authenticity_token
 
   def index
     @decks = Deck.all
+
   end
 
   def show
     @deck = Deck.find(params[:id])
     @creator = @deck.user
+    @cards = @deck.cards
   end
 
   def new
@@ -22,22 +24,8 @@ class DecksController < ApplicationController
       flash[:notice] = "Deck created"
       redirect_to deck_path(@deck)
     else
-      flash[:notice] = @deck.errors.full_messages
+      flash[:notice] = "Please login!"
       render :new
-    end
-  end
-
-  def edit
-    @deck = Deck.find(params[:id])
-  end
-
-  def update
-    @deck = Deck.find(params[:id])
-    if @deck.update_attributes(deck_params)
-      flash[:notice] = 'Your deck name has been updated'
-      redirect_to @deck
-    else
-      render 'edit'
     end
   end
 
@@ -47,6 +35,26 @@ class DecksController < ApplicationController
     flash[:notice] = 'Deck has been deleted'
     redirect_to decks_path
   end
+
+  def add_card
+    authenticate_user!
+    @deck = Deck.find(params[:id])
+    @copies = @deck.cards.where({id: params[:card]})
+    @allcards = @deck.cards
+    if @copies.length <2 && @allcards.length < 30
+      @deck.cards.push(Card.find(params[:card]))
+    end
+    redirect_to @deck
+  end
+
+  def delete_card
+    @deck = Deck.find(params[:id])
+    @card = Card.find(params[:card])
+    @delete = IncludesCard.find_by({card_id: params[:card], deck_id: params[:id]})
+    @delete.destroy
+    redirect_to deck_path(@deck), notice: "Deleted"
+  end
+
 
   private
 

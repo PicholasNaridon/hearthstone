@@ -5,13 +5,16 @@ const CardListItem = (props) => {
 
   return(
     <div className="small-3 medium-3 large-3 columns">
-      <div className="card">
-      <img src={picture} className="image"/>
-        <div className="card-section">
-          <h4><a href={`http://localhost:3000/cards/` + props.id}>{props.name}</a></h4>
-        </div>
-      </div>
+      <form action={window.location.pathname + `/` + props.id} method="post">
+        <button type="submit" value="add card">
+          <img src={picture} className="image"/>
+        </button>
+      </form>
+        <h4>
+          <a href={`http://localhost:3000/cards/` + props.id}>{props.name}</a>
+        </h4>
     </div>
+
 
   )
 }
