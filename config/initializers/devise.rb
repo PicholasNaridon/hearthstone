@@ -168,7 +168,7 @@ Devise.setup do |config|
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
   # config.timeout_in = 30.minutes
-
+  config.secret_key = 'e8eae4f6fe376a1b7cf94087df6527a84bf4742086b912a534fe7769027b3b2f25e617628347407d43f0b3ae528f292b0abe5aa5a61487866000bcea55fb5aa6'
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
   # :failed_attempts = Locks an account after a number of failed attempts to sign in.
