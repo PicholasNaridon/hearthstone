@@ -10,7 +10,7 @@ const CardListItem = (props) => {
           <img src={picture} className="image"/>
         </button>
       </form>
-        <h4>
+        <h4 className="card-name">
           <a href={`http://localhost:3000/cards/` + props.id}>{props.name}</a>
         </h4>
     </div>

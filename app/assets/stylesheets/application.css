@@ -36,20 +36,38 @@
  .search{
    position: absolute;
    width: 20%;
+   right: 40%;
 
  }
 
- ul {
+ .deck-ul{
      display: flex;
      justify-content: right;
      flex-wrap: wrap;
      list-style-type: none;
      padding-left: 0;
  }
-
- li {
+.deck-li {
      flex-basis: 10%;
      margin: 1%;
      text-align: center;
      box-sizing: border-box;
  }
+
+ .deck-index-ul {
+   display: block;
+   list-style-type: none;
+   justify-content: right;
+   flex-wrap: wrap;
+   padding-left: 0;
+
+ }
+
+.card-name {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  color: white;
+}

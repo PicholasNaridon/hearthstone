@@ -135,6 +135,10 @@ class CardList extends Component {
         <input type="text" className="search" placeholder="Search"
         value={this.state.search}
         onChange={this.updateSearch}/>
+        <div>
+          <p></p>
+          <p></p>
+        </div>
         {cards}
         <div>
           {page}

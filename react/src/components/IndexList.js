@@ -135,6 +135,8 @@ class IndexList extends Component {
         <input type="text" className="search" placeholder="Search"
         value={this.state.search}
         onChange={this.updateSearch}/>
+        <p></p>
+        <p></p>
         {cards}
         <div>
           {page}
