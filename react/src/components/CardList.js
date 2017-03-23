@@ -139,7 +139,7 @@ class CardList extends Component {
           <p></p>
           <p></p>
         </div>
-          <p>Hello</p>
+          {cards}
         <div>
           {page}
         </div>
