@@ -4,18 +4,29 @@
   <div>
     <ul >
       <% @cards.each do |card| %>
-        <li>
-          <form action="/decks/<%= @deck.id %>/<%= card.id%>" method="delete">
-            <button type="submit" value="delete card">
-              <% if card.img == nil %>
-                <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif'>
-              <% else %>
-                <img src=<%= card.imgGold %>>
-              <% end %>
-            </button>
-          </form>
-          <%= link_to card.name, card_path(card) %>
-        </li>
+        <% if current_user == @creator %>
+          <li>
+            <form action="/decks/<%= @deck.id %>/<%= card.id%>" method="delete">
+              <button type="submit" value="delete card">
+                <% if card.img == nil %>
+                  <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif'>
+                <% else %>
+                  <img src=<%= card.imgGold %>>
+                <% end %>
+              </button>
+            </form>
+            <%= link_to card.name, card_path(card) %>
+          </li>
+        <% else %>
+          <li>
+            <% if card.img == nil %>
+              <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif'>
+            <% else %>
+              <img src=<%= card.imgGold %>>
+            <% end %>
+            <%= link_to card.name, card_path(card) %>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>
