@@ -25,6 +25,13 @@
 
  }
 
+ .top-bar{
+   background-image: url(/assets/logo.png);
+   background-size:auto;
+   background-repeat: no-repeat;
+   background-position: center;
+ }
+
 
  .search{
    position: absolute;

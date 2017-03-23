@@ -29,10 +29,6 @@ class DecksController < ApplicationController
     end
   end
 
-  def edit
-    @deck = Deck.find(params[:id])
-  end
-
   def update
     @deck = Deck.find(params[:id])
     if @deck.update_attributes(deck_params)

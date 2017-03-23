@@ -125,9 +125,9 @@ class CardList extends Component {
       </div>
     }else {
        page = <div>
-                  <button type="button" onClick={() => this.updateGroup(-1)} className="button">Previous</button>
-                  <button type="button" onClick={() => this.updateGroup(1)} className="button"> Next</button>
-                </div>
+                <button type="button" onClick={() => this.updateGroup(-1)} className="button">Previous</button>
+                <button type="button" onClick={() => this.updateGroup(1)} className="button"> Next</button>
+              </div>
     }
 
     return(

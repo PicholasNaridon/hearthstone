@@ -34,7 +34,6 @@
   <div class="small-6 small-offset-3 columns">
     <div>
       <% if @creator == current_user %>
-        <%= link_to 'Change Name', edit_deck_path(@deck) %> |
         <%= link_to 'Delete Deck', @deck, method: :delete%>
       <% end %>
     </div>
