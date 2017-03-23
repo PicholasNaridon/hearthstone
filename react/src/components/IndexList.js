@@ -19,7 +19,7 @@ class IndexList extends Component {
 
   updateSearch(event) {
     let prevSearch = this.state.search;
-    this.setState({prevSearch: prevSearch})
+    this.setState({prevSearch: prevSearch});
     this.setState({search: event.target.value.substr(0, 20)});
     if (this.state.search.length === 1 && this.state.prevSearch > this.state.search) {
       this.setState({ group: 1 });
@@ -63,7 +63,7 @@ class IndexList extends Component {
       .then(response => response.json())
       .then(body => {
         let randomizedBody = this.shuffle(body);
-        this.setState({ cards: randomizedBody })
+        this.setState({ cards: randomizedBody });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
