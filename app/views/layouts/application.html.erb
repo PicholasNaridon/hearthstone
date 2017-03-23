@@ -17,7 +17,7 @@
       <div class="top-bar topbar">
        <div class="top-bar-left">
          <ul class="menu">
-           <li><%= image_tag "button-logo.png" %></li>
+           <li><%= image_tag "button-logo.png", size: "100x100" %></li>
            <li class="topbar"><%= link_to 'Decks', decks_path, class: "topbar-text" %></li>
            <li class="topbar"><%= link_to 'Cards', cards_path, class: "topbar-text" %></li>
          </ul>
@@ -39,6 +39,8 @@
    <p class="topbar" id="notice"><%= notice %></p>
    </div>
     <%= yield %>
-
+    <footer>
+      <p>All images property of ©2017 BLIZZARD ENTERTAINMENT, INC. </p>
+    </footer>
   </body>
 </html>
