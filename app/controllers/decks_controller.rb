@@ -1,5 +1,5 @@
 class DecksController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
   def index
     @decks = Deck.all
@@ -29,23 +29,12 @@ class DecksController < ApplicationController
     end
   end
 
-  def update
-    @deck = Deck.find(params[:id])
-    if @deck.update_attributes(deck_params)
-      flash[:notice] = 'Your deck name has been updated'
-      redirect_to @deck
-    else
-      render 'edit'
-    end
-  end
-
   def destroy
     @deck = Deck.find(params[:id])
     @deck.destroy
     flash[:notice] = 'Deck has been deleted'
     redirect_to decks_path
   end
-
 
   def add_card
     authenticate_user!

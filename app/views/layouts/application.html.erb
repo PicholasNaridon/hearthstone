@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "HS Deck Builder" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -26,7 +26,6 @@
 
        <div class="top-bar-right">
          <ul class="menu ">
-
            <% if user_signed_in? %>
            <li class="topbar"><p><%= link_to 'Sign Out', destroy_user_session_path, class: "topbar-text", method: :delete %> | <%= link_to 'My Profile', edit_user_registration_path, class: "topbar-text" %> </p></li>
            <% else %>
