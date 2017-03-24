@@ -7,7 +7,7 @@
       Created by: <%= @creator.username %>
     </h4>
     <h5 id="deck-header">
-      <%= @deck.cards.length %>/30
+      Cards: <%= @deck.cards.length %>/30
     </h5>
     <% if @creator == current_user %>
       <%= link_to 'Delete Deck', @deck, method: :delete%>
