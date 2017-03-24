@@ -11,9 +11,17 @@
           <%= image_tag "Cards.png", size: "75x75" %><%= link_to deck.name, deck_path(deck)%>
         </li>
         <li class="deck-index-li">
-          <img class="avatar" src=<%= deck.cards[0].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
-          <img class="avatar" src=<%= deck.cards[1].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
-          <img class="avatar" src=<%= deck.cards[2].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
+          <% if deck.cards.length == 1 %>
+            <img class="avatar" src=<%= deck.cards[0].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
+          <% elsif deck.cards.length == 2 %>
+            <img class="avatar" src=<%= deck.cards[0].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
+            <img class="avatar" src=<%= deck.cards[1].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
+            <img class="avatar" src=<%= deck.cards[2].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
+          <% elsif deck.cards.length >= 3 %>
+            <img class="avatar" src=<%= deck.cards[0].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
+            <img class="avatar" src=<%= deck.cards[1].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
+            <img class="avatar" src=<%= deck.cards[2].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
+          <% end %>
         </li>
       <% end %>
     </ul>
