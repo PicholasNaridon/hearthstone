@@ -50,7 +50,7 @@ class CardList extends Component {
 }
 
   getCards() {
-    fetch('https://hsdeckbuilder.herokuapp.com/api/v1/cards.json')
+    fetch('http://localhost:3000/api/v1/cards.json')
       .then(response => {
         if (response.ok) {
           return response;
@@ -139,7 +139,7 @@ class CardList extends Component {
           <p></p>
           <p></p>
         </div>
-          <p>Hello</p>
+          {cards}
         <div>
           {page}
         </div>

@@ -1,46 +1,82 @@
-<h1><%= @deck.name %></h1>
-<h4>Created by: <%= @creator.username %></h4>
-<h5><%= @deck.cards.length %>/30</h5>
-<% if @creator == current_user %>
-  <%= link_to 'Delete Deck', @deck, method: :delete%>
-<% end %>
-
-  <div>
-    <ul class="deck-ul" >
-      <% @cards.each do |card| %>
-        <% if current_user == @creator %>
-          <li class="deck-li">
-            <form action="/decks/<%= @deck.id %>/<%= card.id%>" method="delete">
-              <button type="submit" value="delete card">
-                <% if card.img == nil %>
-                  <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif'>
-                <% else %>
-                  <img src=<%= card.imgGold %>>
-                <% end %>
-              </button>
-            </form>
-            <%= link_to card.name, card_path(card) %>
-          </li>
-        <% else %>
-          <li class="deck-li">
-            <% if card.img == nil %>
-              <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif'>
-            <% else %>
-              <img src=<%= card.imgGold %>>
-            <% end %>
-            <%= link_to card.name, card_path(card) %>
-          </li>
-        <% end %>
-      <% end %>
-    </ul>
+<div class="row">
+  <div class="small-4 columns" id="deck-header">
+    <h1 id="deck-header">
+      <%= @deck.name %>
+    </h1>
+    <h4 id="deck-header">
+      Created by: <%= @creator.username %>
+    </h4>
+    <h5 id="deck-header">
+      Cards: <%= @deck.cards.length %>/30
+    </h5>
+    <% if @creator == current_user %>
+      <%= link_to 'Delete Deck', @deck, method: :delete%>
+    <% end %>
   </div>
+</div>
+<div class="row">
+  <div class="medium-6 columns">
+      <ul class="deck-ul" >
+        <% @cards.each do |card| %>
+          <% if current_user == @creator %>
+            <li class="deck-li">
+              <form action="/decks/<%= @deck.id %>/<%= card.id%>" method="delete">
+                <button type="submit" value="delete card">
+                  <% if card.img == nil %>
+                    <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif'>
+                  <% else %>
+                    <img src=<%= card.imgGold %>>
+                  <% end %>
+                </button>
+              </form>
+              <%= link_to card.name, card_path(card) %>
+            </li>
+          <% else %>
+            <li class="deck-li">
+              <% if card.img == nil %>
+                <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif'>
+              <% else %>
+                <img src=<%= card.imgGold %>>
+              <% end %>
+              <%= link_to card.name, card_path(card) %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="large-6 columns" id="deck-rating">
+      <% comments_all = @deck.comments %>
+      <% comments_all.each do |comment| %>
+        <% @comments_start += comment.rating.to_f %>
+      <% end %>
+      <% if @comments_start / comments_all.count.to_f > 0 %>
+        <h4>
+          Score : <%= (@comments_start / comments_all.count.to_f).round(1) %> / 5
+        </h4>
+      <% else %>
+        <h4>No reviews yet.</h4>
+      <% end %>
+      <% @comments.each do |comment| %>
+        <li class="card" id="deck-comment">
+          <%= image_tag "button-logo.png", size: "30x30" %><%= comment.user.username %>:<br>
+            <li>
+              <%= comment.body %>
+            </li>
+        </li>
+      <% end %>
+      <br>
+      <br>
+      <% if user_signed_in? %>
+        <div class="small-12 medium-12 large-12 columns">
+          <%= render "comments/comment_form", deck: @deck, comment: @comment%>
+        </div>
+      <% end %>
+    </div>
+</div>
 
-<br>
-<br>
 <div>
-<% if current_user == @creator %>
+  <% if current_user == @creator %>
     <div id="main-app">
     </div>
-<% end %>
-</div>
+  <% end %>
 </div>

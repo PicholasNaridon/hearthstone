@@ -11,6 +11,7 @@ gem 'foundation-rails'
 gem 'carrierwave'
 gem 'validate_url'
 gem 'json'
+gem 'google-webfonts-rails'
 
 group :development do
   gem 'listen', '~> 3.0.5'

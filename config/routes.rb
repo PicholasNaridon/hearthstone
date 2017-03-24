@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :decks do
+    resources :comments
+  end
+
+  resources :comments
+
   post '/decks/:id/:card' => 'decks#add_card'
   get '/decks/:id/:card' => 'decks#delete_card'
 
