@@ -1,12 +1,12 @@
 <div class="row">
   <div class="small-4 columns" id="deck-header">
-    <h1>
+    <h1 id="deck-header">
       <%= @deck.name %>
     </h1>
-    <h4>
+    <h4 id="deck-header">
       Created by: <%= @creator.username %>
     </h4>
-    <h5>
+    <h5 id="deck-header">
       <%= @deck.cards.length %>/30
     </h5>
     <% if @creator == current_user %>
@@ -51,17 +51,21 @@
       <% end %>
       <% if @comments_start / comments_all.count.to_f > 0 %>
         <h4>
-          Score : <%= (@comments_start / comments_all.count.to_f).round(1) %> /5
+          Score : <%= (@comments_start / comments_all.count.to_f).round(1) %> / 5
         </h4>
       <% else %>
         <h4>No reviews yet.</h4>
       <% end %>
       <% @comments.each do |comment| %>
         <li class="card" id="deck-comment">
-          <%= comment.user.username %>:<br>
-          <%= comment.body %>
+          <%= image_tag "button-logo.png", size: "30x30" %><%= comment.user.username %>:<br>
+            <li>
+              <%= comment.body %>
+            </li>
         </li>
       <% end %>
+      <br>
+      <br>
       <% if user_signed_in? %>
         <div class="small-12 medium-12 large-12 columns">
           <%= render "comments/comment_form", deck: @deck, comment: @comment%>

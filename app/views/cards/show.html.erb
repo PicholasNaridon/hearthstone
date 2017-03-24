@@ -15,12 +15,11 @@
     <% if @card.imgGold == nil %>
       <p> Text: <%= @card.text %> </p>
     <% end %>
-    <p>Type: <%= @card.cardType %></p>
-    <p>Faction: <%= @card.faction %></p>
-    <p>Rarity: <%= @card.rarity %></p>
-    <p>Cost: <%= @card.cost %></p>
-    <p>Artist: <%= @card.artist %></p>
-    <p>Collectible: <%= @card.collectible %></p>
-    <p>Class: <%= @card.playerClass %></p>
+    <p><%= image_tag "button-logo.png", size: "30x30" %> <strong>Type:</strong> <%= @card.cardType %></p>
+    <p><%= image_tag "button-logo.png", size: "30x30" %> <strong>Rarity:</strong>  <%= @card.rarity %></p>
+    <p><%= image_tag "button-logo.png", size: "30x30" %> <strong>Cost:</strong>  <%= @card.cost %></p>
+    <p><%= image_tag "button-logo.png", size: "30x30" %> <strong>Artist:</strong>  <%= @card.artist %></p>
+    <p><%= image_tag "button-logo.png", size: "30x30" %> <strong>Collectible:</strong>  <%= @card.collectible %></p>
+    <p><%= image_tag "button-logo.png", size: "30x30" %> <strong>Class:</strong>  <%= @card.playerClass %></p>
   </div>
 </div>

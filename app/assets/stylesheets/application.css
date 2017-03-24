@@ -16,12 +16,18 @@
 
 */
 
+@import url('https://fonts.googleapis.com/css?family=Inknut+Antiqua:700|Luckiest+Guy|Macondo');
+
  body{
    background-image: url(/assets/brown-02.jpg);
    background-repeat: no-repeat;
    background-attachment: fixed;
    background-position: top;
    background-size: cover;
+ }
+
+ h4 {
+   font-family: 'Luckiest Guy';
 
  }
 
@@ -37,8 +43,14 @@
    position: absolute;
    width: 20%;
    right: 40%;
-
+   background-color: #1779BA;
+   border: none;
+   border-radius: 5%;
+   color: #1779BA;
+   font-family: 'Luckiest Guy';
  }
+
+
 
 #card-show-info {
   margin-top: 20%;
@@ -48,7 +60,7 @@
 
 #deck-header{
   color: gold;
-  font-family: 'Macondo';
+  font-family: 'Luckiest Guy';
 }
 
 #deck-comment{
@@ -57,6 +69,13 @@
   width: 50%;
   list-style: none;
   color: gold;
+  font-family: 'Luckiest Guy';
+
+}
+
+a{
+  font-family: 'Luckiest Guy';
+
 }
 
 #deck-rating{
@@ -65,6 +84,8 @@
   width: 50%;
   list-style: none;
   color: gold;
+  font-family: 'Luckiest Guy';
+
 }
 
  .deck-ul{
@@ -92,6 +113,8 @@
 
 .card-name {
   text-align: center;
+  font-family: 'Luckiest Guy';
+
 }
 
 footer {
