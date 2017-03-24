@@ -3,13 +3,15 @@ class DecksController < ApplicationController
 
   def index
     @decks = Deck.all
-
   end
 
   def show
     @deck = Deck.find(params[:id])
     @creator = @deck.user
     @cards = @deck.cards
+    @comment = Comment.new
+    @comments = @deck.comments
+    @comments_start = 0
   end
 
   def new
