@@ -21,7 +21,7 @@ feature "Add comment" do
     choose("comment_rating_1")
     click_button "Submit"
 
-    expect(page).to have_content("Review did not save.")
+    expect(page).to have_content("Comment did not save.")
   end
 
   scenario 'Adding a comment with a blank rating' do
@@ -30,7 +30,7 @@ feature "Add comment" do
     fill_in 'Add Comment', with: "test"
     click_button "Submit"
 
-    expect(page).to have_content("Review did not save.")
+    expect(page).to have_content("Comment did not save.")
   end
 
   scenario 'Unauthenticated user attempts to add comment' do
