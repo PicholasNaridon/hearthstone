@@ -50,7 +50,11 @@
    font-family: 'Luckiest Guy';
  }
 
+.devise {
+  font-family: 'Luckiest Guy';
+  color: gold;
 
+}
 
 #card-show-info {
   margin-top: 20%;
