@@ -3,7 +3,9 @@
     <br>
     <br>
     <h3>
+      <% if signed_in? %>
       <%= link_to "New Deck", new_deck_path, class: "button expanded" %>
+      <% end %>
     </h3>
     <ul class="deck-index-ul">
       <% @decks.each do |deck| %>

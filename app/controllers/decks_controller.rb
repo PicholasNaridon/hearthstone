@@ -26,7 +26,7 @@ class DecksController < ApplicationController
       flash[:notice] = "Deck created"
       redirect_to deck_path(@deck)
     else
-      flash[:notice] = "Please login!"
+      flash[:notice] = "Deck not saved"
       render :new
     end
   end

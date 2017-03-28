@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User creates new item" do
+feature "User creates new deck" do
   let!(:user) { FactoryGirl.create(:user) }
 
   scenario "clicking add deck will add deck to list" do
@@ -24,5 +24,12 @@ feature "User creates new item" do
 
     expect(page).to_not have_content("Deck Created")
     expect(page).to have_content("Name can't be blank")
+  end
+
+  scenario "Creating deck while not signed in" do
+    visit root_path
+    
+    expect(page).to_not have_content("New Deck")
+    expect(page).to have_content("Login")
   end
 end
