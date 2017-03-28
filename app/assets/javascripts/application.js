@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require Chart.bundle.min
 //= require foundation
 //= require_tree .
 

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="small-6 columns">
+  <div class="small-2 large-4 columns">
       <% if @card.imgGold == nil %>
         <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif' >
       <% else %>
@@ -11,7 +11,7 @@
         <img src=<%= @card.img%> >
       <% end %>
   </div>
-  <div class="small-6 columns" id="card-show-info">
+  <div class="small-4 large-4 columns" id="card-show-info">
     <% if @card.imgGold == nil %>
       <p> Text: <%= @card.text %> </p>
     <% end %>
@@ -21,5 +21,13 @@
     <p><%= image_tag "button-logo.png", size: "30x30" %> <strong>Artist:</strong>  <%= @card.artist %></p>
     <p><%= image_tag "button-logo.png", size: "30x30" %> <strong>Collectible:</strong>  <%= @card.collectible %></p>
     <p><%= image_tag "button-logo.png", size: "30x30" %> <strong>Class:</strong>  <%= @card.playerClass %></p>
+  </div>
+  <div class="small-6 large-4 columns" id="card-deck-info">
+    <% if @card.decks.count > 0 %>
+      <h3 class="devise">Appears in the following decks:</h3>
+        <% @card.decks.each do |deck| %>
+        <p><%= link_to deck.name, deck_path(deck.id) %></p>
+      <% end %>
+    <% end %>
   </div>
 </div>

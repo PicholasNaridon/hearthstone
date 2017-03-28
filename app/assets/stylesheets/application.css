@@ -66,6 +66,11 @@
   font-size: 30px;
 }
 
+#card-deck-info {
+  margin-top: 25%;
+
+}
+
 #deck-header{
   color: gold;
   font-family: 'Luckiest Guy';
