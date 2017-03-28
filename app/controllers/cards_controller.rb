@@ -6,9 +6,4 @@ class CardsController < ApplicationController
   def show
     @card = Card.find(params[:id])
   end
-
-  def destroy
-    @card = Card.find(params[:id])
-    @card.destroy
-  end
 end

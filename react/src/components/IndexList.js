@@ -50,7 +50,7 @@ class IndexList extends Component {
 }
 
   getCards() {
-    fetch('http://localhost:3000/api/v1/cards.json')
+    fetch('https://hsdeckbuilder.herokuapp.com/api/v1/cards.json')
       .then(response => {
         if (response.ok) {
           return response;

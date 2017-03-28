@@ -11,11 +11,9 @@ const CardListItem = (props) => {
         </button>
       </form>
         <h4 className="card-name">
-          <a href={`http://localhost:3000/cards/` + props.id}>{props.name}</a>
+          <a href={`https://hsdeckbuilder.herokuapp.com/cards/` + props.id}>{props.name}</a>
         </h4>
     </div>
-
-
   )
 }
 
