@@ -6,10 +6,10 @@ class CommentsController < ApplicationController
     @comment.deck = @deck
     @comment.user = @user
     if @comment.save
-      flash[:notice] = "Review successfully saved!!"
+      flash[:notice] = "Comment successfully saved!!"
       redirect_to deck_path(@deck)
     else
-      flash[:notice] = "Review did not save."
+      flash[:notice] = "Comment did not save."
       redirect_to deck_path(@deck)
     end
   end
