@@ -12,6 +12,8 @@ gem 'carrierwave'
 gem 'validate_url'
 gem 'json'
 gem 'google-webfonts-rails'
+gem 'chartjs-ror'
+gem 'googlecharts'
 
 group :development do
   gem 'listen', '~> 3.0.5'
