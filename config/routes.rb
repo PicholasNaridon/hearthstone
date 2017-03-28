@@ -26,5 +26,6 @@ Rails.application.routes.draw do
 
   resources :cards
 
+  get 'decks/index'
   root 'decks#index'
 end
