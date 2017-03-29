@@ -1,5 +1,6 @@
 class DecksController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :authorize_user, except: [:index, :show]
 
   def index
     @decks = Deck.all
@@ -20,6 +21,7 @@ class DecksController < ApplicationController
   end
 
   def create
+    !authorize_user
     @deck = Deck.new(deck_params)
     @deck.user = current_user
     if @deck.save
@@ -39,7 +41,6 @@ class DecksController < ApplicationController
   end
 
   def add_card
-    authenticate_user!
     @deck = Deck.find(params[:id])
     @copies = @deck.cards.where({id: params[:card]})
     @allcards = @deck.cards
