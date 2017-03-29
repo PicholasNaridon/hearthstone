@@ -38,4 +38,14 @@ feature "Add comment" do
 
   expect(page).to_not have_content("Submit a comment")
   end
+
+  scenario "unauthenitcated user attempts to submit review" do
+    visit deck_path(deck)
+
+    click_button "Submit"
+    expect(page).to have_current_path(new_user_session_path)
+    expect(page).to have_content("Please log in to use this feature")
+    expect(page).to have_content("Log in")
+    expect(page).to_not have_content(deck.name)
+  end
 end

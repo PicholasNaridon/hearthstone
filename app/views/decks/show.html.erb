@@ -66,11 +66,9 @@
       <% end %>
       <br>
       <br>
-      <% if user_signed_in? %>
         <div class="small-12 medium-12 large-12 columns">
           <%= render "comments/comment_form", deck: @deck, comment: @comment%>
         </div>
-      <% end %>
     </div>
 </div>
 

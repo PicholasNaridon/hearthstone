@@ -38,5 +38,5 @@ feature "User creates new deck" do
 
    expect(page).to have_current_path(new_user_session_path)
    expect(page).to have_content("Please log in to use this feature")
- end
+  end
 end
