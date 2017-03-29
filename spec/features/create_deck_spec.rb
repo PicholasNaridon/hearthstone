@@ -28,8 +28,15 @@ feature "User creates new deck" do
 
   scenario "Creating deck while not signed in" do
     visit root_path
-    
+
     expect(page).to_not have_content("New Deck")
     expect(page).to have_content("Login")
+  end
+
+  scenario "unauthenticated visitor triess to add a deck" do
+   visit new_deck_path
+
+   expect(page).to have_current_path(new_user_session_path)
+   expect(page).to have_content("Please log in to use this feature")
   end
 end
