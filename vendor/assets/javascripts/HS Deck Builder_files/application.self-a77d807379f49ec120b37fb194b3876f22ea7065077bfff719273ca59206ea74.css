@@ -1,0 +1,137 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+
+
+*/
+
+
+@import url('https://fonts.googleapis.com/css?family=Inknut+Antiqua:700|Luckiest+Guy|Macondo');
+
+ body{
+   background-image: url(/assets/brown-02.jpg);
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: top;
+   background-size: cover;
+ }
+
+ h4 {
+   font-family: 'Luckiest Guy';
+
+ }
+
+ .top-bar{
+   background-image: url(/assets/logo.png);
+   background-size:auto;
+   background-repeat: no-repeat;
+   background-position: center;
+ }
+
+
+ .search{
+   position: absolute;
+   width: 20%;
+   right: 40%;
+   background-color: #1779BA;
+   border: none;
+   border-radius: 5%;
+   color: #1779BA;
+   font-family: 'Luckiest Guy';
+ }
+
+.devise {
+  font-family: 'Luckiest Guy';
+  color: gold;
+}
+
+#notice {
+  font-family: 'Luckiest Guy';
+  color: gold;
+}
+
+#card-show-info {
+  margin-top: 20%;
+  color: white;
+  font-size: 30px;
+}
+
+#card-deck-info {
+  margin-top: 25%;
+
+}
+
+#deck-header{
+  color: gold;
+  font-family: 'Luckiest Guy';
+}
+
+#deck-comment{
+  background: none;
+  border: none;
+  width: 50%;
+  list-style: none;
+  color: gold;
+  font-family: 'Luckiest Guy';
+
+}
+
+a{
+  font-family: 'Luckiest Guy';
+
+}
+
+#deck-rating{
+  background: none;
+  border: none;
+  width: 50%;
+  list-style: none;
+  color: gold;
+  font-family: 'Luckiest Guy';
+
+}
+
+ .deck-ul{
+   display: flex;
+   justify-content: right;
+   flex-wrap: wrap;
+   list-style-type: none;
+   padding-left: 0;
+ }
+.deck-li {
+   flex-basis: 30%;
+   margin: 1%;
+   text-align: center;
+   box-sizing: border-box;
+ }
+
+ .deck-index-ul {
+   display: block;
+   list-style-type: none;
+   justify-content: right;
+   flex-wrap: wrap;
+   padding-left: 0;
+
+ }
+
+.card-name {
+  text-align: center;
+  font-family: 'Luckiest Guy';
+
+}
+
+footer {
+  text-align: center;
+  color: white;
+}

@@ -14,14 +14,19 @@
         </li>
         <li class="deck-index-li">
           <% if deck.cards.length == 1 %>
-            <img class="avatar" src=<%= deck.cards[0].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
+            <img class="avatar" src=<%= deck.cards[0].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="180" width="126">
           <% elsif deck.cards.length == 2 %>
-            <img class="avatar" src=<%= deck.cards[0].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
-            <img class="avatar" src=<%= deck.cards[1].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
-          <% elsif deck.cards.length >= 3 %>
-            <img class="avatar" src=<%= deck.cards[0].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
-            <img class="avatar" src=<%= deck.cards[1].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
-            <img class="avatar" src=<%= deck.cards[2].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="120" width="84">
+            <img class="avatar" src=<%= deck.cards[0].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="180" width="126">
+            <img class="avatar" src=<%= deck.cards[1].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="180" width="126">
+          <% elsif deck.cards.length == 3 %>
+            <img class="avatar" src=<%= deck.cards[0].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="180" width="126">
+            <img class="avatar" src=<%= deck.cards[1].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="180" width="126">
+            <img class="avatar" src=<%= deck.cards[2].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="180" width="126">
+          <% elsif deck.cards.length >= 4 %>
+            <img class="avatar" src=<%= deck.cards[0].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="180" width="126">
+            <img class="avatar" src=<%= deck.cards[1].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="180" width="126">
+            <img class="avatar" src=<%= deck.cards[2].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="180" width="126">
+            <img class="avatar" src=<%= deck.cards[3].imgGold %> alt="Not Found" onerror=this.src="http://wow.zamimg.com/images/hearthstone/cardbacks/original/Card_Back_GoldenCelebration.png" height="180" width="126">
           <% end %>
         </li>
       <% end %>
