@@ -1,7 +1,6 @@
 class DecksController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :authorize_user, except: [:index, :show]
-
   def index
     @decks = Deck.all
   end
