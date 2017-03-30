@@ -58,7 +58,6 @@ class DecksController < ApplicationController
     redirect_to deck_path(@deck), notice: "Deleted"
   end
 
-
   private
 
   def deck_params
