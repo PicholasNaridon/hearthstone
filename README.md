@@ -1,26 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Author:
 
-Things you may want to cover:
+Nick Paridon
+
+HSDeckbuilder is a Ruby on Rails application based on the popular Blizzard card game Hearthstone. Users can create, share and comment on decks they and other users have created.
+
+
+
+Https://HSDeckbuilder.herokuapp.com
 
 * Ruby version
-
-* System dependencies
-
-* Configuration
-
+$ 2.3.3
 * Database creation
-
+$ rake db:create
 * Database initialization
-
+$ rake db:migrate
+* Database seeding
+$ rake db:seed
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
+$ rspec
 * Deployment instructions
-
+$ rails s
+$ npm start
 * ...
 
 ![Build Status](https://codeship.com/projects/4930f190-ed76-0134-14f2-3e8eb32b9f44/status?branch=master)
