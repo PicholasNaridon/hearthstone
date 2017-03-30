@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
   before_action :authorize_user
-
-
   def create
     @deck = Deck.find(params[:deck_id])
     @user = current_user

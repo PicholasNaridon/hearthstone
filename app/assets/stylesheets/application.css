@@ -31,6 +31,11 @@
 
  }
 
+ .submit-label{
+   font-family: 'Luckiest Guy';
+   color: gold;
+ }
+
  .top-bar{
    background-image: url(/assets/logo.png);
    background-size:auto;
@@ -68,7 +73,6 @@
 
 #card-deck-info {
   margin-top: 25%;
-
 }
 
 #deck-header{
@@ -83,12 +87,10 @@
   list-style: none;
   color: gold;
   font-family: 'Luckiest Guy';
-
 }
 
 a{
   font-family: 'Luckiest Guy';
-
 }
 
 #deck-rating{
@@ -98,7 +100,6 @@ a{
   list-style: none;
   color: gold;
   font-family: 'Luckiest Guy';
-
 }
 
  .deck-ul{
@@ -121,13 +122,11 @@ a{
    justify-content: right;
    flex-wrap: wrap;
    padding-left: 0;
-
  }
 
 .card-name {
   text-align: center;
   font-family: 'Luckiest Guy';
-
 }
 
 footer {

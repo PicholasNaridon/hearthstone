@@ -1,7 +1,6 @@
 class DecksController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :authorize_user, except: [:index, :show]
-
   def index
     @decks = Deck.all
   end
@@ -57,7 +56,6 @@ class DecksController < ApplicationController
     @delete.destroy
     redirect_to deck_path(@deck), notice: "Deleted"
   end
-
 
   private
 
