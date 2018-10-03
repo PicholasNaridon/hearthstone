@@ -40,7 +40,6 @@ $ npm start```
 ![app](http://www.nickparidon.com/static/media/hearthstone.7e7498c6.png)
 
 ![Build Status](https://codeship.com/projects/4930f190-ed76-0134-14f2-3e8eb32b9f44/status?branch=master)
-![Code Climate](https://codeclimate.com/github/picholasnaridon/hearthstone.png)
 ![Coverage Status](https://coveralls.io/repos/picholasnaridon/hearthstone/badge.png)
 
 
