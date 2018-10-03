@@ -20,6 +20,7 @@ HSDeckbuilder is a Ruby on Rails application based on the popular Blizzard card 
 
 
 ### Installation and Info
+![Coverage Status](https://coveralls.io/repos/picholasnaridon/hearthstone/badge.png)
 
 
 * Ruby version
@@ -39,7 +40,5 @@ $ npm start```
 
 ![app](http://www.nickparidon.com/static/media/hearthstone.7e7498c6.png)
 
-![Build Status](https://codeship.com/projects/4930f190-ed76-0134-14f2-3e8eb32b9f44/status?branch=master)
-![Coverage Status](https://coveralls.io/repos/picholasnaridon/hearthstone/badge.png)
 
 
