@@ -35,7 +35,7 @@ $ ```rspec```
 * Deployment instructions
 $ ```rails s
 $ npm start```
-* 
+
 
 ![app](http://www.nickparidon.com/static/media/hearthstone.7e7498c6.png)
 
