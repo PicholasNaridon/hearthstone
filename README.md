@@ -14,7 +14,6 @@ HSDeckbuilder is a Ruby on Rails application based on the popular Blizzard card 
 
 * [Rails] - Ruby framework
 * [ReactJS] - frontend JS framework
-* [Twitter Bootstrap] - great UI boilerplate for modern web apps
 * [Devise] - User Auth
 * [PostgreSQL] - Relational database
 
